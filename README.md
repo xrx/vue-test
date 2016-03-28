@@ -1,6 +1,8 @@
 ## Easter experiment
 An app to try `vue.js`, `vue-resource`, `webpack`, an api in `express` and friends(babel, some loaders, etc.)
 
+The build setup uses `Webpack` and the `vue-loader` plugin, which enables `Vue` components to be written in a format that encapsulates a component's style, template and logic in a single file.
+
 #### Some useful resources
 
 * http://vuejs.org/api/
