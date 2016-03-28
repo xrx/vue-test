@@ -1,25 +1,29 @@
 <template>
   <div class="container">
-    <h2 class="red">{{msg}}</h2>
-    <p v-for="item in someData">{{item | json }}</p>
+    <movie v-for="movie in movies"
+           :movie="movie">
   </div>
 </template>
 
 <script>
 
 import { getMessage } from '../services/movies'
+import Movie from './Movie.vue'
+
 export default {
+  components: {
+    Movie
+  },
   data () {
     return {
-      msg: "Movies",
-      someData: this.someData
+      movies: this.movies
     }
   },
   activate(done) {
     var self = this
     var msg = this.$http({url: 'http://localhost:8090/api/movies', method: 'GET'})
     msg.then(function (response) {
-      self.someData = response.data
+      self.movies = response.data
       done()
     }).catch(function (response) {
       alert("aaaah!");
